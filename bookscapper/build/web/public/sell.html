@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+    </head>
+    <body>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+           <h5 class="card-title text-center">Book details</h5>
+            <form class="form-signin" action = "../Submit" method = "POST">
+
+   <div class="form-group row">
+     <label for="example-text-input" class="col-2 col-form-label">Name</label>
+     <div class="col-10">
+       <input name = "book_name" class="form-control" type="text" id="example-text-input" placeholder="Enter book name" required>
+     </div>
+   </div>
+
+   <div class="form-group row">
+     <label for="example-number-input" class="col-2 col-form-label">Price(&#x20B9;)</label>
+     <div class="col-10">
+       <input name = "price" class="form-control" type="number" value="20" id="example-number-input">
+     </div>
+   </div>
+
+   <div class="form-group row">
+     <label for="example-number-input" class="col-2 col-form-label">Condition</label>
+     <div class="col-10">
+   <select name = "condition" class="custom-select custom-select-md">
+     <option selected>Open this select menu</option>
+     <option value="OLD">NEW</option>
+     <option value="NEW">OLD</option>
+   </select>
+     </div>
+   </div>
+
+                
+   <div class="form-group row">
+     <label for="example-number-input" class="col-2 col-form-label">Category</label>
+
+<div class="col-10">
+   <select name = "category" class="custom-select custom-select-md">
+     <option selected>Open this select menu</option>
+        <option value = "Action and Adventure">Action and Adventure</option>
+         <option value = "Anthologies">Anthologies</option>
+         <option name="Art">Art</option>
+         <option value = "Autobiographies">Autobiographies</option>
+         <option value = "Biographies">Biographies</option>
+         <option value = "Children">Children</option>
+         <option value = "Comics">Comics</option>
+         <option value = "Cookbooks">Cookbooks</option>
+         <option value = "Diaries">Diaries</option>
+         <option value = "Dictionaries">Dictionaries</option>
+         <option value = "Drama">Drama</option>
+         <option value = "Encyclopedia">Encyclopedia</option>
+         <option value = "Educational">Educational</option>
+         <option value = "Fantasy">Fantasy</option>
+         <option value = "Guide">Guide</option>
+         <option value = "History">History</option>
+         <option value = "Horror">Horror</option>
+         <option value = "Math">Math</option>
+         <option value = "Mystery">Mystery</option>
+         <option value = "Poetry">Poetry</option>
+         <option value = "Prayer books">Prayer books</option>
+         <option value = "Religious">Religious</option>
+         <option value = "Romance">Romance</option>
+         <option value = "Satire">Satire</option>
+         <option value = "Science">Science</option>
+         <option value = "Science Fiction">Science Fiction</option>
+         <option value = "Self help">Self help</option>
+         <option value = "Series">Series</option>
+         <option value = "Travel">Travel</option>
+         <option value = "Trilogies">Trilogies</option>
+         <option value = "Fictional">Fictional</option>
+      </select>
+   </div>
+     <hr class="my-4">
+        </div>
+
+   <div class="form-group row">
+     <label for="example-text-input" class="col-2 col-form-label">Seller</label>
+     <div class="col-10">
+       <input class="form-control" type="text" id="example-text-input" placeholder="Enter your name" required>
+     </div>
+   </div>
+
+   <div class="form-group row">
+     <label for="example-text-input" class="col-2 col-form-label">Mobile No</label>
+     <div class="col-10">
+       <input class="form-control" type="text" id="example-text-input" placeholder="Enter your mobile number" required>
+     </div>
+   </div>
+
+
+
+   <div class="form-group row">
+     <label for="example-number-input" class="col-2 col-form-label">Address</label>
+   	<div class="col-10">
+     <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" required></textarea>   		
+   	</div>
+     </div>        
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">SUBMIT</button>                
+	    </form>
+
+	  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </body>
+</html>
