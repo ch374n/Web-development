@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+    var request;
+    
+    function someFunction() {
+        var number = document.inform.my_number.value;            
+        request = new XMLHttpRequest();
+        var url = "sample.jsp?number=" + number;
+        request.onreadystatechange = anotherFunction;
+        request.open("GET", url, true);
+        request.send();
+    }
+    
+    function anotherFunction(){ 
+        if(request.readyState == 4) {
+            var text = request.responseText;
+            document.getElementById("heading").innerHTML =  text;
+        }
+    }
+</script>
+</head>
+<body>
+    <form action="action" name="inform"> 
+        <input type="text" name="my_number"/>
+        <input type="button" value="BUTTON" onClick="someFunction()"/>
+    </form>
+    <h1 id="heading"></h1>
+</body>
+</html>
