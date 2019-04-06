@@ -1,0 +1,70 @@
+<!-- 
+   Create user Student registration form (use textbox, text area , checkbox, radio 	 button, select
+	box etc.) (use internal CSS) to format website 
+-->
+
+<html>
+	<head>
+		<title>Student Registration form</title>
+		<style>
+			* {
+				margin-top: 5px;
+			}
+			input {
+				display: block;
+			}
+			textarea {
+				display: block;	
+			}
+
+			input[name ="sex"] {
+				display: inline;
+			}
+			select {
+				display: block;
+			}
+
+		</style>
+	</head>
+	<body>
+		<fieldset>
+			<legend>Student Information Form</legend>
+			<form action="">
+				<label for="student_name">Name </label>
+				<input type="text" name="student">
+				<label for="mobile">Mobile Number </label>
+				<input type="text" name="mobile">
+				<label for="address">Address</label>
+				<textarea name="address" id="" cols="30" rows="10"></textarea>
+				<fieldset>
+					<legend>Gender</legend>
+					<div class="radio">
+						<label for="male">Male</label>
+						<input type="radio" name="sex" value="male">
+						<label for="female">Female</label>
+						<input type="radio" name="sex" value="female">					
+					</div>					
+				</fieldset>
+
+				<fieldset>
+					<legend>languages</legend>	
+					<div class="checkbox">
+						<label for="english">English</label>				
+						<input type="checkbox">
+						<label for="Marathi">Marathi</label>				
+						<input type="checkbox">
+						<label for="Hindi">Hindi</label>				
+						<input type="checkbox">
+					</div>
+				</fieldset>
+
+				<select name="university">
+					<option value="pune">University Of Pune</option>
+					<option value="mumbai">University Of Mumbai</option>
+					<option value="chennai">University Of Chennai</option>
+				</select>
+				<input type="submit" value="submit" >
+			</form>
+		</fieldset>
+	</body>
+</html>
