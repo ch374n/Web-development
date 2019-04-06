@@ -1,0 +1,30 @@
+
+* {
+	box-sizing: border-box;
+	letter-spacing: 0.1em;
+}
+
+img {
+	float:right;
+}
+
+.wrapper {
+	width: 70vw;
+	margin: 0 auto;
+	padding: 30px;
+
+}
+
+header { 
+	text-align: center;
+}
+h1 {
+	color: #0099ff;
+}
+
+h2 {
+	background-color: #0099ff;
+	padding: 5px;
+	color: white;
+}
+
