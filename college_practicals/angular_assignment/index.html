@@ -1,0 +1,26 @@
+<html ng-app="myApp">
+	<head>
+		<title>Angular app</title>
+	</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>	
+<script src="script.js"></script>
+	<body>
+		<div ng-controller="myController">
+			<form ng-submit="addEntry()">
+				<input type="text" ng-model="newData.name">
+				<input type="number" ng-model="newData.roll">	
+				<input type="submit" value="SUBMIT">			
+			</form>
+			<table border="1" cellspacing="0" cellpadding="5">
+				<tr>
+					<th>Name</th>
+					<th>Roll</th>
+				</tr>
+				<tr ng-repeat = "entry in collection">
+					<td>{{entry.name}}</td>
+					<td>{{entry.roll}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
