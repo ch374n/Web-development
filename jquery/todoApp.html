@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <title>TODO List</title>
+    <style>
+        :checked + span {
+            text-decoration: line-through;
+            color: red !important;
+        }
+
+
+        .cross {
+            cursor: pointer; 
+        }
+
+        button {
+            outline: none !important; 
+        }
+
+    </style>
+</head>
+<body class="flex justify-center align-center h-screen">
+    <main class="bg-red-500 w-96 h-auto p-6 m-10  overflow-y-auto">
+        <h1 class="text-white text-2xl text-center">TO-DO LIST</h1>
+        <form class="relative">
+            <input type="text" class="p-2 outline-none rounded-sm w-full my-2" id="newtask" placeholder="new task" required>
+            <button class="outline-none text-blue-600 text-lg font-medium absolute right-2 top-3">ADD</button>
+        </form>
+        <section>
+            <div class="todos bg-white p-3 rounded-sm">
+
+            </div>
+            
+        </section>
+    </main>
+    <script>
+       
+       function init() {
+            const todos = getFromLocalStorage() || []         
+            const html = todos.map(({ value, checked, id }) => `
+                <div class="mb-3">
+                    <span class="cross bg-red-500 text-white p-3/5">&cross;</span>
+                    <input type="checkbox" ${checked ? "checked" : null } data-id=${id}>
+                    <span class="text-lg">${value}</span> 
+                    <hr>
+                </div>
+            `)
+
+            $(':text').val('')
+            $('.todos').
+                html(html).
+                append("<button id='clearBtn' class='text-right w-full text-red-500 text-lg outline-none'>Clear</button>") 
+            registerEvents() 
+        }
+        
+       function registerEvents() {
+           $(':checkbox').on('click', handleCheck)
+           $('.cross').on('click', handleDelete)
+           $('form').on('submit', handleSubmit)
+           $('#clearBtn').on('click', handleClear)
+        }
+        
+        function removeEvents() {
+            $(':checkbox').off('click')
+            $('.cross').off('click')
+            $('form').off('submit')            
+            $('#clearBtn').off('click')            
+       }
+
+       function handleClear() {
+           localStorage.setItem("TODOS", JSON.stringify([]))
+           removeEvents()
+           init()
+       }
+
+       function getFromLocalStorage() {
+            return JSON.parse(localStorage.getItem("TODOS")) || [] 
+       }
+
+       function storeToLocalStorage({ id, value }) {
+            const todos = getFromLocalStorage() || [] 
+            todos.push({ id, value, checked: false }) 
+            localStorage.setItem("TODOS", JSON.stringify(todos)) 
+       }
+
+
+       function handleDelete(e) {
+            const id = $(e.target).next().attr('data-id')
+            const todos = getFromLocalStorage().filter(todo => todo.id !== +id) 
+            localStorage.setItem("TODOS", JSON.stringify(todos))
+            removeEvents()
+            init() 
+        }
+        
+        function handleCheck(e) {
+            const { checked } = e.target 
+            const { id } = e.currentTarget.dataset 
+            const todos = getFromLocalStorage() 
+            const idx = todos.findIndex(todo => todo.id === +id) 
+            if(idx > -1) {
+                todos[idx].checked = !todos[idx].checked
+            }
+            localStorage.setItem("TODOS", JSON.stringify(todos))  
+            debugger
+            removeEvents()
+            init() 
+       }
+       
+       function handleSubmit(e) {
+           e.preventDefault() 
+            const value = $(':text').val()
+            const id = Math.round(Math.random() * 1000)
+            storeToLocalStorage({id, value}) 
+            removeEvents()
+            init() 
+       }
+
+       init() 
+
+    </script>
+</body>
+</html>
